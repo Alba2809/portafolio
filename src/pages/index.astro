@@ -1,15 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Badge from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
 import LinkedInIcon from "../components/icons/LinkedIn.astro";
 import GithubIcon from "../components/icons/Github.astro";
-import SocialPill from "../components/SocialPill.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import SectionContainer from "../components/SectionContainer.astro";
 ---
 
-<Layout title="Portafolio - Iván">
+<Layout
+  title="Portafolio de Iván - Desarrollador Web y Aplicaciones Android"
+  description="Contrata a Iván Alba, un desarrollador web y aplicaciones Android. Explora mi portafolio y contacta conmigo para llevar tus proyectos al siguiente nivel."
+>
   <main>
-    <section class="w-full lg:w-[740px] mx-auto py-44">
-		<img src="" alt="foto" class="w-12 h-12 rounded-full mb-4" />
+    <SectionContainer class="py-44 pb-24">
+      <img src="" alt="foto" class="size-12 rounded-full mb-4" />
 
       <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
         Hey, soy Iván
@@ -24,25 +29,34 @@ import SocialPill from "../components/SocialPill.astro";
       </h1>
       <h2 class="text-2xl text-wrap">
         <span>Egresado de Ingeniería en Sistemas Computacionales. </span>
-		<span class="text-yellow-200/90">Desarrollador Web y Aplicaciones Android. </span>
-		<span class="text-red-100/90">De Veracruz, México. </span>
-		<span class="opacity-75">Expecializado en crear aplicaciones únicas.</span>
+        <span class="text-yellow-200/90"
+          >Desarrollador Web y Aplicaciones Android.
+        </span>
+        <span class="text-red-100/90">De Veracruz, México. </span>
+        <span class="opacity-75"
+          >Expecializado en crear aplicaciones únicas.</span
+        >
       </h2>
 
       <nav class="flex gap-x-4 mt-8">
-		<SocialPill href="https://linkedin.com/in/iván-alba">
-			<LinkedInIcon class="h-6 w-6" />
-			LinkedIn
-		</SocialPill>
-		<SocialPill href="https://github.com/Alba2809">
-			<GithubIcon class="h-6 w-6" />
-			Github
-		</SocialPill>
-		<SocialPill href="https://github.com/Alba2809">
-			<GithubIcon class="h-6 w-6" />
-			Github
-		</SocialPill>
-	  </nav>
-    </section>
+        <SocialPill href="https://linkedin.com/in/iván-alba">
+          <LinkedInIcon class="size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/Alba2809">
+          <GithubIcon class="size-6" />
+          Github
+        </SocialPill>
+        <SocialPill href="https://github.com/Alba2809">
+          <MailIcon class="size-6" />
+          jose.ivan.280901@gmail.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+
+	<SectionContainer id="proyectos" class="py-44 pb-24">
+		<h2>Proyectos</h2>
+
+	</SectionContainer>
   </main>
 </Layout>
