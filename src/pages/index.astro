@@ -6,6 +6,8 @@ import LinkedInIcon from "../components/icons/LinkedIn.astro";
 import GithubIcon from "../components/icons/Github.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import SectionContainer from "../components/SectionContainer.astro";
+import Experience from "../components/Experience.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
 ---
 
 <Layout
@@ -54,7 +56,15 @@ import SectionContainer from "../components/SectionContainer.astro";
       </nav>
     </SectionContainer>
 
-	<SectionContainer id="proyectos" class="py-44 pb-24">
+	<SectionContainer id="experiencia" class="pb-24">
+		<h2 class="text-4xl font-semibold mb-6 flex gap-x-3 items-center">
+      <Briefcase class="size-7" />
+      Experiencia
+    </h2>
+    <Experience />
+	</SectionContainer>
+
+	<SectionContainer id="proyectos" class="pb-24">
 		<h2>Proyectos</h2>
 
 	</SectionContainer>
