@@ -1,0 +1,96 @@
+---
+import ReactIcon from "./icons/React.astro";
+import TailwindIcon from "./icons/Tailwind.astro";
+import JavaScriptIcon from "./icons/JavaScript.astro";
+import NodeJsIcon from "./icons/NodeJs.astro";
+import ExpressIcon from "./icons/Express.astro";
+import MySQLIcon from "./icons/MySQL.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import MongoDBIcon from "./icons/MongoDB.astro";
+
+const TAGS = {
+    REACT: {
+        name: "ReactJS",
+        class: "bg-[#00d8fe]/20 text-white/90",
+        icon: ReactIcon
+    },
+    TAILWIND: {
+        name: "TailwindCSS",
+        class: "bg-[#1cbbb8]/20 text-[#73bcf6]",
+        icon: TailwindIcon
+    },
+    JAVASCRIPT: {
+        name: "JavaScript",
+        class: "bg-yellow-100 text-black",
+        icon: JavaScriptIcon
+    },
+    NODEJS: {
+        name: "NodeJS",
+        class: "bg-[#61b047]/40 text-green-300",
+        icon: NodeJsIcon
+    },
+    EXPRESS: {
+        name: "Express",
+        class: "bg-black text-white/90",
+        icon: ExpressIcon
+    },
+    MYSQL: {
+        name: "MySQL",
+        class: "bg-indigo-300 text-[#4479A1]",
+        icon: MySQLIcon
+    },
+    ASTRO: {
+        name: "Astro",
+        class: "bg-[#ff5d01]/20 text-[#ff5d01]",
+        icon: AstroIcon
+    },
+    MOGODB: {
+        name: "MongoDB",
+        class: "bg-[#07eb65]/40 text-[#47A248]",
+        icon: MongoDBIcon
+    },
+}
+
+const PROJECTS = [
+  {
+    title: "SISADESC - Sistema de Administración Escolar",
+    description:
+      "Este proyecto forma parte de un Sistema de Administración Escolar que facilita la comunicación entre los padres de familia y la institución educativa. Proporciona una interfaz amigable y eficiente para interactuar con los datos del sistema.",
+    link: "#",
+    github: "https://github.com/Alba2809/sisadesc",
+    image: "/public/projects/sisadesc.webp",
+    tags: [
+      TAGS.REACT,
+      TAGS.TAILWIND,
+      TAGS.JAVASCRIPT,
+      TAGS.NODEJS,
+      TAGS.EXPRESS,
+      TAGS.MYSQL,
+    ],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, tags, image }) => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg text-pretty mb-4">{description}</p>
+      <ul class="flex flex-row gap-x-2 mb-3">
+        {tags.map((tag) => (
+          <li>
+            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                <tag.icon class="size-4" />
+                {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        alt={`Captura de pantalla de ${title}`}
+      />
+    </article>
+  ))
+}
