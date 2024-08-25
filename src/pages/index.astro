@@ -1,15 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Badge from "../components/Badge.astro";
-import SocialPill from "../components/SocialPill.astro";
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import GithubIcon from "../components/icons/Github.astro";
-import MailIcon from "../components/icons/Mail.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Projects from "../components/Projects.astro";
-import Experience from "../components/Experience.astro";
-import BriefcaseIcon from "../components/icons/Briefcase.astro";
+import AboutMe from "../components/AboutMe.astro";
 import CodeIcon from "../components/icons/Code.astro";
+import ProfileCheckIcon from "../components/icons/ProfileCheck.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout
@@ -17,48 +13,12 @@ import CodeIcon from "../components/icons/Code.astro";
   description="Contrata a Iván Alba, un desarrollador web y aplicaciones Android. Explora mi portafolio y contacta conmigo para llevar tus proyectos al siguiente nivel."
 >
   <main class="px-4">
-    <SectionContainer class="py-44 pb-32">
-      <img src="" alt="foto" class="size-12 rounded-full mb-4" />
-
-      <h1 class="text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
-        Hey, soy Iván
-        <a
-          href="https://linkedin.com/in/iván-alba"
-          target="_blank"
-          rel="noopener"
-          class="flex justify-center items-center"
-        >
-          <Badge> Disponible para trabajar </Badge>
-        </a>
-      </h1>
-      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-        <span>Egresado de Ingeniería en Sistemas Computacionales. </span>
-        <span class="text-yellow-200/90"
-          >Desarrollador Web y Aplicaciones Android.
-        </span>
-        <span class="text-red-100/90">De Veracruz, México. </span>
-        <span class="opacity-75"
-          >Expecializado en crear aplicaciones únicas.</span
-        >
-      </h2>
-
-      <nav class="flex flex-wrap gap-4 mt-8">
-        <SocialPill href="https://linkedin.com/in/iván-alba">
-          <LinkedInIcon class="size-4 md:size-6" />
-          LinkedIn
-        </SocialPill>
-        <SocialPill href="https://github.com/Alba2809">
-          <GithubIcon class="size-4 md:size-6" />
-          Github
-        </SocialPill>
-        <SocialPill href="https://github.com/Alba2809">
-          <MailIcon class="size-4 md:size-6" />
-          jose.ivan.280901@gmail.com
-        </SocialPill>
-      </nav>
+    <SectionContainer class="py-16 md:py-36">
+      <Hero />
     </SectionContainer>
 
-	<!-- <SectionContainer id="experiencia">
+    <div class="space-y-24">
+      <!-- <SectionContainer id="experiencia">
 		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
       <BriefcaseIcon class="size-7" />
       Experiencia
@@ -66,12 +26,25 @@ import CodeIcon from "../components/icons/Code.astro";
     <Experience />
 	</SectionContainer> -->
 
-	<SectionContainer id="proyectos">
-    <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-      <CodeIcon class="size-7" />
-      Proyectos
-    </h2>
-    <Projects />
-	</SectionContainer>
+      <SectionContainer id="proyectos">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <CodeIcon class="size-7" />
+          Proyectos
+        </h2>
+        <Projects />
+      </SectionContainer>
+
+      <SectionContainer id="sobre-mi">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+        >
+          <ProfileCheckIcon class="size-8" />
+          Sobre mí
+        </h2>
+        <AboutMe />
+      </SectionContainer>
+    </div>
   </main>
 </Layout>

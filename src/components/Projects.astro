@@ -7,55 +7,71 @@ import ExpressIcon from "./icons/Express.astro";
 import MySQLIcon from "./icons/MySQL.astro";
 import AstroIcon from "./icons/AstroIcon.astro";
 import MongoDBIcon from "./icons/MongoDB.astro";
+import GitHubIcon from "./icons/Github.astro";
+import LinkIcon from "./icons/Link.astro";
+import AndroidIcon from "./icons/Android.astro";
+import FirebaseIcon from "./icons/Firebase.astro";
+import LinkButton from "./LinkButton.astro";
+import Firebase from "./icons/Firebase.astro";
 
 const TAGS = {
-    REACT: {
-        name: "ReactJS",
-        class: "bg-[#00d8fe]/20 text-white/90",
-        icon: ReactIcon
-    },
-    TAILWIND: {
-        name: "TailwindCSS",
-        class: "bg-[#1cbbb8]/20 text-[#73bcf6]",
-        icon: TailwindIcon
-    },
-    JAVASCRIPT: {
-        name: "JavaScript",
-        class: "bg-yellow-100 text-black",
-        icon: JavaScriptIcon
-    },
-    NODEJS: {
-        name: "NodeJS",
-        class: "bg-[#61b047]/40 text-green-300",
-        icon: NodeJsIcon
-    },
-    EXPRESS: {
-        name: "Express",
-        class: "bg-black text-white/90",
-        icon: ExpressIcon
-    },
-    MYSQL: {
-        name: "MySQL",
-        class: "bg-indigo-300 text-[#4479A1]",
-        icon: MySQLIcon
-    },
-    ASTRO: {
-        name: "Astro",
-        class: "bg-[#ff5d01]/20 text-[#ff5d01]",
-        icon: AstroIcon
-    },
-    MOGODB: {
-        name: "MongoDB",
-        class: "bg-[#07eb65]/40 text-[#47A248]",
-        icon: MongoDBIcon
-    },
-}
+  REACT: {
+    name: "ReactJS",
+    class: "bg-[#00d8fe]/20 text-white/90",
+    icon: ReactIcon,
+  },
+  TAILWIND: {
+    name: "TailwindCSS",
+    class: "bg-[#1cbbb8]/20 text-[#73bcf6]",
+    icon: TailwindIcon,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-yellow-100 text-black",
+    icon: JavaScriptIcon,
+  },
+  NODEJS: {
+    name: "NodeJS",
+    class: "bg-[#61b047]/40 text-green-300",
+    icon: NodeJsIcon,
+  },
+  EXPRESS: {
+    name: "Express",
+    class: "bg-black text-white/90",
+    icon: ExpressIcon,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-indigo-300 text-[#4479A1]",
+    icon: MySQLIcon,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#ff5d01]/20 text-[#ff5d01]",
+    icon: AstroIcon,
+  },
+  MOGODB: {
+    name: "MongoDB",
+    class: "bg-[#07eb65]/40 text-[#47A248]",
+    icon: MongoDBIcon,
+  },
+  ANDROID: {
+    name: "Android",
+    class: "bg-[#00d8fe]/20 text-white/90",
+    icon: AndroidIcon,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "bg-[#ffc400]/20 text-[#ffc400]",
+    icon: FirebaseIcon,
+  },
+};
 
 const PROJECTS = [
   {
     title: "SISADESC - Sistema de Administración Escolar",
     description:
-      "Este proyecto forma parte de un Sistema de Administración Escolar que facilita la comunicación entre los padres de familia y la institución educativa. Proporciona una interfaz amigable y eficiente para interactuar con los datos del sistema.",
+      "Este proyecto forma parte de un Sistema de Administración Escolar que facilita la comunicación entre los padres de familia y la institución educativa.",
     link: "#",
     github: "https://github.com/Alba2809/sisadesc",
     image: "/public/projects/sisadesc.webp",
@@ -68,29 +84,123 @@ const PROJECTS = [
       TAGS.MYSQL,
     ],
   },
+  {
+    title: "SISADESC - Android",
+    description:
+      "Se muestra una idea de como poría ser una versión móvil (Android) reducida del proyecto SISADESC.",
+    link: "#",
+    github: "https://github.com/Alba2809/sisadesc_android",
+    image: "/public/projects/sisadesc_android.webp",
+    tags: [TAGS.ANDROID, TAGS.FIREBASE],
+  },
+  {
+    title: "Sistema Web Integral para el Ayuntamiento de Teocelo",
+    description:
+      "Sistema Web Integral para optimizar y simplificar los procesos que se realizan en el Ayuntamiento de Teocelo.",
+    link: "#",
+    github: "https://github.com/Alba2809/teocelo-cbs",
+    image: "/public/projects/teocelo.webp",
+    tags: [
+      TAGS.REACT,
+      TAGS.TAILWIND,
+      TAGS.JAVASCRIPT,
+      TAGS.NODEJS,
+      TAGS.EXPRESS,
+      TAGS.MOGODB,
+    ],
+  },
 ];
 ---
 
-{
-  PROJECTS.map(({ title, description, tags, image }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-      <p class="text-lg text-pretty mb-4">{description}</p>
-      <ul class="flex flex-row gap-x-2 mb-3">
-        {tags.map((tag) => (
-          <li>
-            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-                <tag.icon class="size-4" />
-                {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        class="rounded shadow-2xl shadow-white/10"
-        src={image}
-        alt={`Captura de pantalla de ${title}`}
-      />
-    </article>
-  ))
-}
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt={`Captura del proyecto ${title}`}
+              class="object-cover object-top w-full h-full transition duration-500 md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <div class={`w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] ${tags.length < 5 && "pl-10"}`}>
+              <ul
+                class={`flex flex-row mb-2 gap-x-2 ${tags.length > 4 && "animate-infinite-scroll"}`}
+              >
+                {tags.map((tag) => (
+                  <li>
+                    <span
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                    >
+                      <tag.icon class="size-4" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              {tags.length > 4 && (
+                <ul class="flex flex-row mb-2 gap-x-2 animate-infinite-scroll">
+                  {tags.map((tag) => (
+                    <li>
+                      <span
+                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                      >
+                        <tag.icon class="size-4" />
+                        {tag.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHubIcon class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && link !== "#" && (
+                <LinkButton href={link}>
+                  <LinkIcon class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  @keyframes infiniteScroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  #horizontal-scrolling {
+    animation-name: infiniteScroll;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+</style>
