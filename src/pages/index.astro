@@ -5,7 +5,11 @@ import Projects from "../components/Projects.astro";
 import AboutMe from "../components/AboutMe.astro";
 import CodeIcon from "../components/icons/Code.astro";
 import ProfileCheckIcon from "../components/icons/ProfileCheck.astro";
+import BriefcaseIcon from "../components/icons/Briefcase.astro";
 import Hero from "../components/Hero.astro";
+import Technologies from "../components/Technologies.astro";
+import TechnoIcon from "../components/icons/Techno.astro";
+import Experience from "../components/Experience.astro";
 ---
 
 <Layout
@@ -18,13 +22,23 @@ import Hero from "../components/Hero.astro";
     </SectionContainer>
 
     <div class="space-y-24">
-      <!-- <SectionContainer id="experiencia">
-		<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-      <BriefcaseIcon class="size-7" />
-      Experiencia
-    </h2>
-    <Experience />
-	</SectionContainer> -->
+      <SectionContainer id="experiencia">
+        <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+          <BriefcaseIcon class="size-7" />
+          Experiencia profesional
+        </h2>
+        <Experience />
+      </SectionContainer>
+
+      <!-- <SectionContainer id="aptitudes">
+        <h2
+          class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+        >
+          <TechnoIcon class="size-7" />
+          Aptitudes
+        </h2>
+        <Technologies />
+      </SectionContainer> -->
 
       <SectionContainer id="proyectos">
         <h2
