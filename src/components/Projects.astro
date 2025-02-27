@@ -12,7 +12,7 @@ import LinkIcon from "./icons/Link.astro";
 import AndroidIcon from "./icons/Android.astro";
 import FirebaseIcon from "./icons/Firebase.astro";
 import LinkButton from "./LinkButton.astro";
-import Firebase from "./icons/Firebase.astro";
+import BlenderIcon from "./icons/Blender.astro";
 
 const TAGS = {
   REACT: {
@@ -65,6 +65,11 @@ const TAGS = {
     class: "bg-[#ffc400]/20 text-[#ffc400]",
     icon: FirebaseIcon,
   },
+  BLENDER: {
+    name: "Blender",
+    class: "bg-[#005385]/20 text-white/90",
+    icon: BlenderIcon,
+  },
 };
 
 const PROJECTS = [
@@ -109,6 +114,15 @@ const PROJECTS = [
       TAGS.MOGODB,
     ],
   },
+  {
+    title: "A present for you",
+    description:
+      "Página web interactiva creada para mostrarsela a alguien muy importante. Inspirada en la fecha 14 de febrero, combina elementos visuales, animaciones, modelos 3D y música para transmitir un mensaje sincero y emotivo.",
+    link: "https://a-present-for-you.vercel.app/",
+    github: "https://github.com/Alba2809/valentines-present",
+    image: "/projects/ValentineDay.webp",
+    tags: [TAGS.JAVASCRIPT, TAGS.TAILWIND, TAGS.BLENDER, TAGS.REACT],
+  },
 ];
 ---
 
@@ -132,7 +146,9 @@ const PROJECTS = [
             {title}
           </h3>
           <div class="flex flex-wrap mt-2">
-            <div class={`w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] ${tags.length < 5 && "pl-10"}`}>
+            <div
+              class={`w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] ${tags.length < 4 && "pl-10"}`}
+            >
               <ul
                 class={`flex flex-row mb-2 gap-x-2 ${tags.length > 4 && "animate-infinite-scroll"}`}
               >
