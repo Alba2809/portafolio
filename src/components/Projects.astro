@@ -20,6 +20,11 @@ const TAGS = {
     class: "bg-[#00d8fe]/20 text-white/90",
     icon: ReactIcon,
   },
+  REACTNATIVE: {
+    name: "React Native",
+    class: "bg-[#61dbfc]/20 text-white/90",
+    icon: ReactIcon,
+  },
   TAILWIND: {
     name: "TailwindCSS",
     class: "bg-[#1cbbb8]/20 text-[#73bcf6]",
@@ -115,6 +120,22 @@ const PROJECTS = [
     ],
   },
   {
+    title: "SmartChef",
+    description:
+      "Aplicación de recetas que permite a los usuarios crear, organizar y compartir platillos de manera sencilla. La app facilita agregar ingredientes, pasos, categorías y tiempo de preparación, además de guardar recetas localmente o publicarlas. También incluye funciones de inteligencia artificial, para facilitar la creación, optimizando la experiencia de quienes disfrutan cocinar y descubrir nuevas ideas.",
+    link: "#",
+    github: "https://github.com/Alba2809/react-native-smartchef",
+    image: "/projects/smartchef.webp",
+    tags: [
+      TAGS.ANDROID,
+      TAGS.REACTNATIVE,
+      TAGS.NODEJS,
+      TAGS.EXPRESS,
+      TAGS.MOGODB,
+      TAGS.JAVASCRIPT,
+    ],
+  },
+  {
     title: "A present for you",
     description:
       "Página web interactiva creada para mostrarsela a alguien muy importante. Inspirada en la fecha 14 de febrero, combina elementos visuales, animaciones, modelos 3D y música para transmitir un mensaje sincero y emotivo.",
@@ -134,9 +155,9 @@ const PROJECTS = [
           <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
             <img
               alt={`Captura del proyecto ${title}`}
-              class="object-cover object-top w-full h-full transition duration-500 md:scale-110 md:group-hover:scale-105"
-              loading="lazy"
+              class="object-cover object-top w-full h-full transition duration-500 md:scale-110 md:group-hover:scale-105 project-image cursor-pointer"
               src={image}
+              data-src={image}
             />
           </div>
         </div>
@@ -150,12 +171,12 @@ const PROJECTS = [
               class={`w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] ${tags.length < 4 && "pl-10"}`}
             >
               <ul
-                class={`flex flex-row mb-2 gap-x-2 ${tags.length > 4 && "animate-infinite-scroll"}`}
+                class={`flex flex-row mb-2 gap-x-2 ${tags.length > 4 && "animate-infinite-scroll pr-1"}`}
               >
                 {tags.map((tag) => (
                   <li>
                     <span
-                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 whitespace-nowrap`}
                     >
                       <tag.icon class="size-4" />
                       {tag.name}
@@ -168,7 +189,7 @@ const PROJECTS = [
                   {tags.map((tag) => (
                     <li>
                       <span
-                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 whitespace-nowrap`}
                       >
                         <tag.icon class="size-4" />
                         {tag.name}
@@ -202,6 +223,76 @@ const PROJECTS = [
     ))
   }
 </div>
+
+<div
+  id="imageDialog"
+  class="fixed inset-0 z-50 hidden bg-black/90 items-center justify-center w-full h-screen p-3 transition-opacity duration-300"
+>
+  <button
+    id="closeBtn"
+    class="absolute top-4 right-4 text-white text-3xl font-bold"
+  >
+    ✕
+  </button>
+  <img
+    id="dialogImage"
+    src=""
+    alt="Imagen ampliada"
+    class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-xl transform scale-90 opacity-0 transition-all duration-300"
+  />
+</div>
+
+<script>
+  const dialog = document.getElementById(
+    "imageDialog"
+  ) as HTMLDivElement | null;
+  const dialogImg = document.getElementById(
+    "dialogImage"
+  ) as HTMLImageElement | null;
+  const closeBtn = document.getElementById("closeBtn");
+
+  document
+    .querySelectorAll<HTMLImageElement>(".project-image")
+    .forEach((img) => {
+      img.addEventListener("click", () => {
+        if (dialog && dialogImg) {
+          dialogImg.src = img.dataset.src || "";
+
+          dialog.classList.remove("hidden");
+          dialog.classList.add("flex");
+          dialog.classList.add("opacity-0"); // reset
+
+          void dialog.offsetWidth;
+
+          dialog.classList.remove("opacity-0");
+          dialog.classList.add("opacity-100");
+
+          dialogImg.classList.remove("scale-90", "opacity-0");
+          dialogImg.classList.add("scale-100", "opacity-100");
+        }
+      });
+    });
+
+  const closeDialog = () => {
+    if (!dialog || !dialogImg) return;
+
+    dialog.classList.remove("opacity-100");
+    dialog.classList.add("opacity-0");
+
+    dialogImg.classList.remove("scale-100", "opacity-100");
+    dialogImg.classList.add("scale-90", "opacity-0");
+
+    setTimeout(() => {
+      dialog.classList.remove("flex");
+      dialog.classList.add("hidden");
+    }, 300); 
+  };
+
+  closeBtn?.addEventListener("click", closeDialog);
+  dialog?.addEventListener("click", (e) => {
+    if (e.target === dialog) closeDialog();
+  });
+</script>
 
 <style>
   @keyframes infiniteScroll {
